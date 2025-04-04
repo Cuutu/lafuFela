@@ -2,12 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getProductsByCategory } from '@/lib/db'
 import { ApiError } from '@/types'
 
+interface RouteSegment {
+  params: {
+    id: string;
+  };
+}
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  segment: RouteSegment
 ) {
   try {
-    const products = await getProductsByCategory(params.id)
+    const products = await getProductsByCategory(segment.params.id)
     return NextResponse.json(products)
   } catch (error) {
     const apiError = error as ApiError
