@@ -1,5 +1,3 @@
-import { NextRequest } from 'next/server'
-
 export type ApiError = {
   message: string;
   code?: string;
