@@ -2,18 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getProductById } from '@/lib/db'
 import { ApiError } from '@/types'
 
-interface RouteSegment {
-  params: {
-    id: string;
-  };
-}
-
 export async function GET(
   request: NextRequest,
-  segment: RouteSegment
+  { params }: { params: { id: string } }
 ) {
   try {
-    const product = await getProductById(segment.params.id)
+    const product = await getProductById(params.id)
     
     if (!product) {
       return NextResponse.json(
