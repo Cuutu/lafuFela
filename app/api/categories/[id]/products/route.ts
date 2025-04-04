@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { getProductsByCategory } from '@/lib/db'
-import { ApiError, RouteParams } from '@/types'
+import { ApiError, ProductParams } from '@/types'
 
 export async function GET(
-  request: Request,
-  { params }: RouteParams
+  request: NextRequest,
+  context: ProductParams
 ) {
   try {
-    const products = await getProductsByCategory(params.id)
+    const products = await getProductsByCategory(context.params.id)
     return NextResponse.json(products)
   } catch (error) {
     const apiError = error as ApiError

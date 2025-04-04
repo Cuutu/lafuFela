@@ -4,6 +4,12 @@ export type ApiError = {
   status?: number;
 }
 
+export type ProductParams = {
+  params: {
+    id: string;
+  };
+}
+
 export type RouteParams = {
   params: {
     id: string;
