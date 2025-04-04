@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
 import { getProductsByCategory } from '@/lib/db'
-import { ApiError } from '@/types'
+import { ApiError, RouteParams } from '@/types'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: RouteParams
 ) {
   try {
     const products = await getProductsByCategory(params.id)
