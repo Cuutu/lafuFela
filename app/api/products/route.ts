@@ -5,9 +5,10 @@ export async function GET() {
   try {
     const products = await getProducts()
     return NextResponse.json(products)
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error en GET /api/products:', error)
     return NextResponse.json(
-      { error: 'Error al obtener los productos' },
+      { error: error.message || 'Error al obtener los productos' },
       { status: 500 }
     )
   }

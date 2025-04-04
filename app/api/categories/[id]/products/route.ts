@@ -8,9 +8,10 @@ export async function GET(
   try {
     const products = await getProductsByCategory(params.id)
     return NextResponse.json(products)
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error en GET /api/categories/[id]/products:', error)
     return NextResponse.json(
-      { error: 'Error al obtener los productos de la categoría' },
+      { error: error.message || 'Error al obtener los productos de la categoría' },
       { status: 500 }
     )
   }

@@ -16,9 +16,10 @@ export async function GET(
     }
 
     return NextResponse.json(product)
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error en GET /api/products/[id]:', error)
     return NextResponse.json(
-      { error: 'Error al obtener el producto' },
+      { error: error.message || 'Error al obtener el producto' },
       { status: 500 }
     )
   }
