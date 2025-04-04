@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getProductById } from '@/lib/db'
+import { ApiError } from '@/types'
 
 export async function GET(
   request: Request,
@@ -16,10 +17,11 @@ export async function GET(
     }
 
     return NextResponse.json(product)
-  } catch (error: any) {
-    console.error('Error en GET /api/products/[id]:', error)
+  } catch (error) {
+    const apiError = error as ApiError
+    console.error('Error en GET /api/products/[id]:', apiError)
     return NextResponse.json(
-      { error: error.message || 'Error al obtener el producto' },
+      { error: apiError.message || 'Error al obtener el producto' },
       { status: 500 }
     )
   }
