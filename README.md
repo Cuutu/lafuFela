@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tienda de Ropa
 
-## Getting Started
+Una aplicación web moderna para una tienda de ropa construida con Next.js, TypeScript, Tailwind CSS y Prisma.
 
-First, run the development server:
+## Características
 
+- 🛍️ Catálogo de productos con filtros por categoría
+- 🎨 Interfaz de usuario moderna y responsive
+- 🛒 Carrito de compras
+- 🔍 Búsqueda de productos
+- 📱 Diseño adaptable a dispositivos móviles
+- 🚀 Optimizado para rendimiento
+- 🔒 Autenticación de usuarios
+- 💳 Procesamiento de pagos
+
+## Tecnologías
+
+- [Next.js](https://nextjs.org/) - Framework de React
+- [TypeScript](https://www.typescriptlang.org/) - Superset tipado de JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS
+- [Prisma](https://www.prisma.io/) - ORM para bases de datos
+- [PostgreSQL](https://www.postgresql.org/) - Base de datos
+- [Vercel](https://vercel.com/) - Plataforma de despliegue
+
+## Requisitos
+
+- Node.js 18.x o superior
+- npm 9.x o superior
+- PostgreSQL 14.x o superior
+
+## Instalación
+
+1. Clona el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-usuario/tienda-ropa.git
+cd tienda-ropa
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configura las variables de entorno:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Ejecuta las migraciones de la base de datos:
+```bash
+npx prisma migrate dev
+```
 
-## Learn More
+5. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts Disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta el linter
+- `npm run prisma:studio` - Abre Prisma Studio para gestionar la base de datos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura del Proyecto
 
-## Deploy on Vercel
+```
+tienda-ropa/
+├── app/                  # Directorio de la aplicación Next.js
+│   ├── api/             # Rutas de API
+│   ├── components/      # Componentes React
+│   └── pages/          # Páginas de la aplicación
+├── lib/                 # Utilidades y configuraciones
+├── prisma/             # Configuración y esquema de Prisma
+├── public/             # Archivos estáticos
+└── types/              # Definiciones de tipos TypeScript
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contribución
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Haz fork del repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
+
+Tu Nombre - [@tutwitter](https://twitter.com/tutwitter) - email@ejemplo.com
+
+Link del Proyecto: [https://github.com/tu-usuario/tienda-ropa](https://github.com/tu-usuario/tienda-ropa)
