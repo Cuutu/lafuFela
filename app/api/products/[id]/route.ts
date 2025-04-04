@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getProductById } from '@/lib/db'
 import { ApiError } from '@/types'
 
 export async function GET(
-  request: NextRequest,
+  _request: Request,
   context: { params: { id: string } }
 ) {
   try {
