@@ -2,12 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getProductById } from '@/lib/db'
 import { ApiError } from '@/types'
 
+type Props = {
+  params: { id: string }
+}
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  props: Props
 ) {
   try {
-    const product = await getProductById(params.id)
+    const product = await getProductById(props.params.id)
     
     if (!product) {
       return NextResponse.json(
